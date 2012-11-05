@@ -2,11 +2,11 @@
 
 Validatable is a library for adding validations.
 
-Created by Jay Fields, updated by John Nunemaker
+Created by Jay Fields, updated by John Nunemaker, updated by Leif Gustafson
 
 == Installation
  
- $ gem install jnunemaker-validatable -s http://gemcutter.org
+ $ gem install lgustafson-validatable -s http://gemcutter.org
 
 == License
  	
