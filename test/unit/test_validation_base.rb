@@ -36,7 +36,7 @@ Expectations do
   end
   
   expect "some message 100" do
-    validation = Validatable::ValidationBase.new stub_everything, :base, :message => lambda { "some message #{a_method}" }
+    validation = Validatable::ValidationBase.new stub_everything, :base, :message => lambda {|*x| "some message #{a_method}" }
     validation.message(stub(:a_method=>'100'))
   end
   

@@ -6,7 +6,7 @@ module Validatable
     # 
     #   class Address
     #     include Validatable
-    #     validates_each :zip_code, :logic => lambda { errors.add(:zip_code, "is not valid") if ZipCodeService.allows(zip_code) }
+    #     validates_each :zip_code, :logic => lambda {|*x| errors.add(:zip_code, "is not valid") if ZipCodeService.allows(zip_code) }
     #   end
     #
     # The logic option is required.
@@ -176,7 +176,7 @@ module Validatable
     # 
     #   class Person
     #     include Validatable
-    #     validates_true_for :first_name, :logic => lambda { first_name == 'Jamie' }
+    #     validates_true_for :first_name, :logic => lambda {|*x| first_name == 'Jamie' }
     #   end
     #
     # The logic option is required.
@@ -266,7 +266,7 @@ module Validatable
     # 
     #   class PersonPresenter
     #     include Validatable
-    #     include_errors_from :person, :map => { :name => :namen }, :if => lambda { not person.nil? }
+    #     include_errors_from :person, :map => { :name => :namen }, :if => lambda {|*x| not person.nil? }
     #     attr_accessor :person
     #     
     #     def initialize(person)
@@ -286,12 +286,12 @@ module Validatable
     #     * map - A hash that maps attributes of the child to attributes of the parent.
     #     * if - A block that when executed must return true of the validation will not occur.
     def include_errors_from(attribute_to_validate, options = {})
-      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { true })
+      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda {|*x| true })
     end
     
     def include_validations_for(attribute_to_validate, options = {}) #:nodoc:
       puts "include_validations_for is deprecated; use include_errors_from instead"
-      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { true })
+      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda {|*x| true })
     end
     
     # call-seq: before_validation(&block)

@@ -6,7 +6,7 @@ module Functional
       klass = Class.new do
         include Validatable
         attr_accessor :name
-        validates_true_for :name, :logic => lambda { name == "nombre" }
+        validates_true_for :name, :logic => lambda {|*x| name == "nombre" }
       end
       instance = klass.new
       instance.valid?
@@ -17,7 +17,7 @@ module Functional
       klass = Class.new do
         include Validatable
         attr_accessor :name
-        validates_true_for :name, :logic => lambda { name == "nombre" }
+        validates_true_for :name, :logic => lambda {|*x| name == "nombre" }
       end
       instance = klass.new
       instance.name = "nombre"

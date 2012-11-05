@@ -5,7 +5,7 @@ functional_tests do
     klass = Class.new do
       include Validatable
       attr_accessor :name, :result
-      validates_each :name, :logic => lambda { @result = :is_set }
+      validates_each :name, :logic => lambda {|*x| @result = :is_set }
     end
     instance = klass.new
     instance.valid?

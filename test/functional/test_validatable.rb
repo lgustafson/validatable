@@ -236,7 +236,7 @@ functional_tests do
 
     klass = Class.new do
       include Validatable
-      validates_true_for :address, :logic => lambda { false }, :level => 1, :message => "invalid message"
+      validates_true_for :address, :logic => lambda {|*x| false }, :level => 1, :message => "invalid message"
       include_errors_from :child 
       define_method :child do
         @child ||= child_class.new
@@ -275,7 +275,7 @@ functional_tests do
     end
     klass = Class.new do
       include Validatable
-      include_errors_from :child, :if => lambda { true }
+      include_errors_from :child, :if => lambda {|*x| true }
       define_method :child do
         child_class.new
       end
@@ -293,7 +293,7 @@ functional_tests do
     end
     klass = Class.new do
       include Validatable
-      include_errors_from :child, :if => lambda { false }
+      include_errors_from :child, :if => lambda {|*x| false }
       define_method :child do
         child_class.new
       end
