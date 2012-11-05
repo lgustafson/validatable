@@ -5,12 +5,12 @@ require File.expand_path('../lib/validatable', __FILE__)
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  gem.name        = 'jnunemaker-validatable'
+  gem.name        = 'lgustafson-validatable'
   gem.summary     = 'Validatable is a library for adding validations.'
-  gem.description = 'Validatable is a library for adding validations.'
-  gem.email       = 'nunemaker@gmail.com'
+  gem.description = 'Validatable is a library for adding validations.  Now compatible with Ruby 1.9.2+'
+  gem.email       = 'leif@aktechnicalconsultants.com'
   gem.homepage    = 'http://github.com/jnunemaker/validatable'
-  gem.authors     = ['Jay Fields', 'John Nunemaker']
+  gem.authors     = ['Jay Fields', 'John Nunemaker', 'Leif Gustafson']
   gem.files       = FileList['lib/**/*.rb', '[A-Z]*', 'test/**/*'].to_a
   gem.version     = Validatable::Version
   
